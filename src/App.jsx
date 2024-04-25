@@ -1,35 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, useEffect } from "react";
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  // what if I want to do local storage? STRETCH GOAL
+  const [treats, setTreats] = useState(0);
+  const [tps, setTps] = useState(1); // TPS = Treats Per Second
+
+  useEffect(() => {
+    // maybe you want to do some maths here for the 1000/cps etc
+    // a timer to be created when the page loads to increase treats by tps every second
+    const myInterval = setInterval(() => {
+      addTreat();
+    }, 1000 / tps);
+
+    // to clean up my timer when I rerun the useEffect to i don't end up with a billion timers
+    return () => {
+      clearInterval(myInterval);
+    };
+  }, [tps]);
+
+  function addTreat() {
+    // because this runs in a timer, we need to be more explicit about the previous value of the state variable
+    setTreats((currentTreats) => {
+      // what if I want to do local storage? STRETCH GOAL
+      return currentTreats + 1;
+    });
+  }
+
+  function buyUpgrade() {
+    setTps(tps + 1);
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div>
+      <h1>Chonky Cat Challenge</h1>
+      <button onClick={addTreat}>Feed me a treat!</button>
+      <button onClick={buyUpgrade}>Buy upgrade</button>
+      <p>You have fed me {treats} treats</p>
+      <p>I get {tps} treat/s per second</p>
+    </div>
+  );
 }
-
-export default App
