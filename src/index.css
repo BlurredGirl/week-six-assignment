@@ -6,11 +6,6 @@
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #f3bbe8;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 a {
@@ -23,9 +18,8 @@ a:hover {
 }
 
 body {
-  margin: 20px;
   display: flex;
-  place-items: center;
+  align-items: center;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -33,6 +27,28 @@ body {
 h1 {
   font-size: 4.2em;
   line-height: 1.1;
+}
+
+.cat-button {
+  width: 500px;
+  height: 500px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #121212;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  background-image: url("src/assets/Chonky Cat.png");
+}
+.cat-button:hover {
+  border-color: #ff2df1;
+}
+.cat-button:focus,
+.cat-button:focus-visible {
+  outline: 10px auto -webkit-focus-ring-color;
 }
 
 button {
@@ -65,4 +81,61 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+footer {
+  text-align: center;
+  font-style: italic;
+}
+header, footer {
+  width: 100vw;
+  background-color: #f23396;
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  display: flex;
+  justify-content: center;
+  position: relative;
+
+}
+
+h1 {
+  font-size: 50px;
+  }
+
+  h2 {
+    font-size: 25px;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+
+
+
+
+/* Positioning */
+
+.box-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  max-width: 80%;
+  margin: auto;
+  height: 80%;
+}
+
+.section {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.section2 {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
