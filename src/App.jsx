@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import StoreItems from './StoreItems';
+import ChonkyCat from "/ChonkyCat.png"
 // import Upgrades from './Upgrades';
 
 
@@ -39,7 +40,7 @@ export default function App() {
       <h2>Meet Chonky Cat, she LOVES treats!</h2>
       <section className="box-main">
                 <div className="box-one">
-                <button id="treat-button" className="cat-button" onClick={addTreat}></button>
+                <img src={ChonkyCat} id="treat-button" className="cat-button" onClick={addTreat}></img>
                 <p>You have fed me {treats} treats, wowza!</p>
                 <p>I get {tps} treat/s per second</p>
                     </div>
