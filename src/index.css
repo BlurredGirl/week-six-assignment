@@ -1,10 +1,13 @@
+  body {
+    overflow-x: hidden;
+  }
+
 :root {
   font-family: monospace;
   line-height: 2.5;
   font-weight: 400;
-
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
+  color: rgba(0, 0, 0, 0.87);
   background-color: #f3bbe8;
 }
 
@@ -20,7 +23,7 @@ a:hover {
 body {
   display: flex;
   align-items: center;
-  min-width: 320px;
+  min-width: auto;
   min-height: 100vh;
 }
 
@@ -74,6 +77,7 @@ button:focus-visible {
   :root {
     color: #213547;
     background-color: #ffffff;
+    min-width: 600px;
   }
   a:hover {
     color: #ff2df1;
@@ -100,12 +104,11 @@ header, footer {
 
 }
 
-h1 {
-  font-size: 50px;
-  }
-
   h2 {
     font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   h3 {
@@ -122,20 +125,24 @@ h1 {
   justify-content: center;
   align-items: center;
   color: black;
-  max-width: 80%;
+  width: 100vw;
   margin: auto;
-  height: 80%;
+  height: 100%;
+  flex-direction: row;
 }
 
-.section {
-  height: 200px;
+.box-one {
+  height: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-around;
-}
-.section2 {
-  height: 200px;
+  }
+
+.box-two {
+  height: 10vw;
   display: flex;
-  align-items: center;
-  justify-content: space-around;
+  flex-direction: column;
+  align-items:flex-end;
+  justify-content: space-between;
+  padding: 10px;
 }

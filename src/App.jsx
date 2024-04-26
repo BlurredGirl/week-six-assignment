@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
-import StoreItems from './StoreItems'; 
+import StoreItems from './StoreItems';
+// import Upgrades from './Upgrades';
 
 
 export default function App() {
@@ -28,34 +29,29 @@ export default function App() {
     });
   }
 
-  function buyUpgrade() {
-    setTps(tps + 1);
-  }
+  // function buyUpgrade() {
+  //   setTps(tps + 1);
+  // }
 
   return (
     <div>
       <Header />
-      <section className="section">
-                <div className="box-main">
+      <h2>Meet Chonky Cat, she LOVES treats!</h2>
+      <section className="box-main">
+                <div className="box-one">
                 <button id="treat-button" className="cat-button" onClick={addTreat}></button>
-                <p>You have fed me {treats} treats, wowza!</p>
-                    </div>
-            </section>
-            <section className="section2">
-                <div className="box-main">
-                <button onClick={buyUpgrade}>Buy upgrade</button>
                 <p>You have fed me {treats} treats, wowza!</p>
                 <p>I get {tps} treat/s per second</p>
                     </div>
-            </section>
-            <div className="upgrade-shop">
-              <StoreItems />
-      </div>
+
+
+              <StoreItems tps={tps} treats={treats} setTps={setTps} setTreats={setTreats}/>
+      </section>
+
       <iframe
           src="https://open.spotify.com/embed/track/2VkskfxTldsOJf9cR0aPed?utm_source=generator"
           width="100%"
           height="352"
-          allowfullscreen=""
           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
           loading="autoplay"
         ></iframe>
@@ -64,39 +60,3 @@ export default function App() {
   );
 }
 
-
-
-// Upgrades - Other method
-
-// function UpgradesTable {(treats, tps, setTps, setTreats)} {
-//   function UpgradePurchase (item) {
-//     if (count => item.price) {
-//       setCount{(count) => count - item.price);
-//       setTps(tps) => tps + item.productionRate};
-//     } else {
-//       alert("You don't have enough treats to buy this upgrade! :(");
-//     }
-//   }
-// }
-
-// return (
-//   <table id="upgrades-table">
-//     <thead>
-//       <tr>
-//         <th> className="upgrade-name table-data">Upgrade</th>
-//         <th> className="upgrade-prod table-data">Production Rate</th>
-//         <th> className="upgrade-price table-data">Price</th>
-//       </tr>
-//     </thead>
-  
-//   <tbody>
-//     {upgrades0b.map({item} => {
-//       return {
-//         tr key={item.id}>
-//         <td className="upgrade-name table-data">{item.upgradeTitle}</td>
-//         <td className="upgrade-prod table-data">{item.productionRate}</td>
-//         <td className="upgrade-price table-data">{item.price}</td>
-//       }
-//     })}
-//   </tbody>
-// )

@@ -1,30 +1,29 @@
-import { useState } from 'react';
 import { storeItems } from './Upgrades';
 
 
-export default function StoreItems() {
-    const [catTreatRate, setCatTreatRate] = useState(1); // Initial treat rate
-    const [userTreats, setUserTreats] = useState(0); // Accumulated treats
+export default function StoreItems({tps, setTps, treats, setTreats}) {
 
-    const handleUpgradeClick = (item) => {
-        if (userTreats >= item.cost) {
+    function buyUpgrade(item) {
+        if (treats >= item.cost) {
             // Deduct treats
-            setUserTreats(userTreats - item.cost);
-            // Apply increment to the treat rate
-            setCatTreatRate(catTreatRate + item.increment);
+            setTreats(treats - item.cost);
+            // Apply increment to tps
+            setTps(tps + item.increment);
+            console.log(`Upgraded! You now have ${tps+1} treats per second.`);
         } else {
-            alert("You don't have enough treats to buy this upgrade!");
+            console.log("Not enough treats to buy this upgrade :(");
         }
-    };
+    }
 
     return (
-        <div>
+        <section className='main-two'>
+                <div className='box-two'>
             {storeItems.map((item, index) => (
-                <button key={index} onClick={() => handleUpgradeClick(item)}>
+                <button key={index} onClick={() => buyUpgrade(item)}>
                     {item.name} - Cost: {item.cost} treats
                 </button>
             ))}
         </div>
+        </section>
     );
 }
-
